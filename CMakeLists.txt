@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 2.8)
+project(TestTask)
+find_package(OpenCV REQUIRED)
+
+if(OpenCV_FOUND)
+    include_directories(${OpenCV_INCLUDE_DIRS})
+    include_directories(${PROJECT_SOURCE_DIR}/)
+    add_executable(TestTask test_task.cpp command_line_parser.cpp image_processor.cpp)
+    target_link_libraries(TestTask ${OpenCV_LIBS} )
+endif()
